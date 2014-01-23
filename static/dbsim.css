@@ -1,0 +1,152 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: 'Inconsolata', sans-serif;
+	background: #333;
+	color: #fff;
+}
+textarea, label {
+	font-size: 20px;
+}
+label {
+	display: block;
+	padding: 20px 0 0 20px;
+}
+textarea {
+	font-family: 'Inconsolata', sans-serif;
+	background: #333;
+	display: block;
+	width: 100%;
+	border: none;
+	padding: 20px;
+	color: #fff;
+}
+textarea:focus {
+	outline: 0;
+}
+.left {
+	display: block;
+	text-align: right;
+	width: 25%;
+	float: left;
+	color: #aaa;
+}
+.right {
+	width: 75%;
+	text-align: left;
+	float: right;
+}
+.row:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/*
+
+Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+for highlight.js
+
+*/
+
+.hljs {
+  display: block; padding: 0.5em;
+  background: #444;
+}
+
+.hljs-keyword,
+.hljs-literal,
+.hljs-change,
+.hljs-winutils,
+.hljs-flow,
+.lisp .hljs-title,
+.clojure .hljs-built_in,
+.nginx .hljs-title,
+.tex .hljs-special {
+  color: white;
+}
+
+.hljs,
+.hljs-subst {
+  color: #DDD;
+}
+
+.hljs-string,
+.hljs-title,
+.haskell .hljs-type,
+.ini .hljs-title,
+.hljs-tag .hljs-value,
+.css .hljs-rules .hljs-value,
+.hljs-preprocessor,
+.hljs-pragma,
+.ruby .hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.ruby .hljs-class .hljs-parent,
+.hljs-built_in,
+.sql .hljs-aggregate,
+.django .hljs-template_tag,
+.django .hljs-variable,
+.smalltalk .hljs-class,
+.hljs-javadoc,
+.ruby .hljs-string,
+.django .hljs-filter .hljs-argument,
+.smalltalk .hljs-localvars,
+.smalltalk .hljs-array,
+.hljs-attr_selector,
+.hljs-pseudo,
+.hljs-addition,
+.hljs-stream,
+.hljs-envvar,
+.apache .hljs-tag,
+.apache .hljs-cbracket,
+.tex .hljs-command,
+.hljs-prompt,
+.coffeescript .hljs-attribute {
+  color: #D88;
+}
+
+.hljs-comment,
+.java .hljs-annotation,
+.python .hljs-decorator,
+.hljs-template_comment,
+.hljs-pi,
+.hljs-doctype,
+.hljs-deletion,
+.hljs-shebang,
+.apache .hljs-sqbracket,
+.tex .hljs-formula {
+  color: #777;
+}
+
+.hljs-keyword,
+.hljs-literal,
+.hljs-title,
+.css .hljs-id,
+.hljs-phpdoc,
+.haskell .hljs-type,
+.vbscript .hljs-built_in,
+.sql .hljs-aggregate,
+.rsl .hljs-built_in,
+.smalltalk .hljs-class,
+.diff .hljs-header,
+.hljs-chunk,
+.hljs-winutils,
+.bash .hljs-variable,
+.apache .hljs-tag,
+.tex .hljs-special,
+.hljs-request,
+.hljs-status {
+  color: #EDBD1F;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
+  opacity: 0.5;
+}

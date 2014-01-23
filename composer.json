@@ -1,0 +1,10 @@
+{
+	"name": "connor4312/laravel-dbsim",
+	"description": "Database similator for L4",
+	"keywords": ["laravel", "database", "simulator"],
+	"license": "MIT",
+	"require": {
+		"illuminate/database": "4.1.*"
+	},
+	"minimum-stability": "stable"
+}

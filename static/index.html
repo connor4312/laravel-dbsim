@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>laravel-dbsim</title>
+	<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="./static/dbsim.css">
+</head>
+<body>
+	<div class="row">
+		<div class="left">
+			<label for="q">DB::table('first_table')-></label>
+		</div>
+		<div class="right">
+			<textarea id="q"></textarea>
+		</div>
+	</div>
+	<div class="row">
+		<div class="left">
+			<span>Query:</span>
+		</div>
+		<div class="right" id="query_target">&nbsp;</div>
+	</div>
+	<div class="row">
+		<div class="left">
+			<span>Binding:</span>
+		</div>
+		<div class="right" id="binding_target">&nbsp;</div>
+	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="./static/jquery.elastic.js"></script>
+	<script src="./static/highlight.js"></script>
+	<script src="./static/dbsim.js"></script>
+</body>
+</html>
