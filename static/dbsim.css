@@ -20,7 +20,7 @@ textarea {
 	display: block;
 	width: 100%;
 	border: none;
-	padding: 20px;
+	padding: 20px 0;
 	color: #fff;
 }
 textarea:focus {
