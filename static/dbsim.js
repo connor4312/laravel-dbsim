@@ -10,6 +10,8 @@ var doSubmit = function() {
 
         $('#query_target').html(data.query);
         $('#binding_target').text(JSON.stringify(data.bindings));
+    }).fail(function(jqXHR) {
+        $('#query_target').html(jqXHR.responseText).wrapInner('<span class="error" />');
     });
 };
 
