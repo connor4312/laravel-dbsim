@@ -12,21 +12,18 @@
 
 require './vendor/autoload.php';
 
-use Illuminate\Database\Capsule\Manager as Capsule;
-
-$capsule = new Illuminate\Database\Connection(new PDO('sqlite::memory:'));
-
+$connection = new Illuminate\Database\Connection(new PDO('sqlite::memory:'));
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$query = rtrim($_POST['q'], ';');
 	$query = stripslashes($query);
 
-	$capsule->pretend(function($capsule) use ($query) {
-		eval('$capsule->table("first_table")->' . $query . ';');
+	$connection->pretend(function($connection) use ($query) {
+		eval('$connection->table("first_table")->' . $query . ';');
 	});
 
-	$result = end($capsule->getQueryLog());
+	$result = end($connection->getQueryLog());
 
 	echo json_encode($result);
 } else {
