@@ -23,7 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		eval('$connection->table("first_table")->' . $query . ';');
 	});
 
-	$result = end($connection->getQueryLog());
+	$log = $connection->getQueryLog();
+	
+	$result = end($log);
 
 	echo json_encode($result);
 } else {
