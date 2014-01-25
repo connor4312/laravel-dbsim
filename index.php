@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$query = rtrim($_POST['q'], ';');
 	$query = stripslashes($query);
+	$query = str_replace('DB::', '$connection->', $query);
 
 	$connection->pretend(function($connection) use ($query) {
 		eval('$connection->table("first_table")->' . $query . ';');
