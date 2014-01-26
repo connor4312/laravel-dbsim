@@ -13,8 +13,19 @@
 // Boot up and autoload composer
 require './vendor/autoload.php';
 
-// Set the connection to use. The PDO doesn't matter. TODO: use a mock PDO instead
-$connection = new Illuminate\Database\Connection(new PDO('sqlite::memory:'));
+// Let's fake PDO if it doesn't exist, or remove PDO's constructor if it does
+if (class_exists('PDO')) {
+	class fakePDO extends PDO {
+		public function __construct() {}
+	}
+	$interface = new fakePDO;
+} else {
+	class PDO {}
+	$interface = new PDO;
+}
+
+// Set the connection to use. The PDO doesn't matter
+$connection = new Illuminate\Database\Connection($interface);
 
 // Create a connection resolver for the model, to return the above connection
 class Resolver implements Illuminate\Database\ConnectionResolverInterface {
