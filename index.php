@@ -10,9 +10,29 @@
  * @license MIT
  */
 
+// Boot up and autoload composer
 require './vendor/autoload.php';
 
+// Set the connection to use. The PDO doesn't matter. TODO: use a mock PDO instead
 $connection = new Illuminate\Database\Connection(new PDO('sqlite::memory:'));
+
+// Create a connection resolver for the model, to return the above connection
+class Resolver implements Illuminate\Database\ConnectionResolverInterface {
+	public function connection($name = null) {
+		return $this->getDefaultConnection();
+	}
+	public function getDefaultConnection() {
+		global $connection;
+		return $connection;
+	}
+	public function setDefaultConnection($name) {}
+}
+
+// Create a base model to use for querying
+class Model extends Illuminate\Database\Eloquent\Model {}
+
+// Tell the model to use our own resolver, instead of default from configs
+Model::setConnectionResolver(new Resolver);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -21,11 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$query = str_replace('DB::', '$connection->', $query);
 
 	$connection->pretend(function($connection) use ($query) {
-		eval('$connection->table("first_table")->' . $query . ';');
+		eval('Model::' . $query . ';');
 	});
 
 	$log = $connection->getQueryLog();
-	
 	$result = end($log);
 
 	echo json_encode($result);
