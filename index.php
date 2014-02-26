@@ -45,7 +45,7 @@ class Model extends Illuminate\Database\Eloquent\Model {}
 // Tell the model to use our own resolver, instead of default from configs
 Model::setConnectionResolver(new Resolver);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['q'])) {
 
 	$query = rtrim($_POST['q'], ';');
 	$query = stripslashes($query);
